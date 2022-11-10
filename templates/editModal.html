@@ -1,0 +1,30 @@
+{%extends 'index.html'%}
+{%block editModal%}
+<dialog id="modal2">
+    <form action="/edit/" method="post">
+        <input type="hidden" name="id" value='{{id}}'>
+        <input type="text" name="name" placeholder="{{product.name}}">
+        <input type="integer" name="quantity" placeholder="{{product.quantity}}">
+        <input type="integer" name="price" placeholder="{{product.price}}">
+        <input type="submit" value="Edit">
+    </form>
+    <div class="alignCenter" "center">
+        <form action='/' method='get'>
+            <input type='submit' value='Cancel'>
+        </form>
+    </div>
+</dialog>
+
+
+<script>
+    let actionBtn = document.querySelectorAll('.action');
+    for (let i = 0; i < actionBtn.length; i++) {
+        actionBtn[i].setAttribute('disabled', '');
+      }
+    
+    let modal2 = document.querySelector('#modal2')
+    modal2.showModal()
+</script>
+
+
+{%endblock%}

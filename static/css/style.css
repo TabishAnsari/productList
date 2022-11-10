@@ -1,0 +1,22 @@
+.center{
+    text-align:center
+  }
+
+table, th, td {
+    border: 1px solid;
+    width: 75%;
+  }
+
+.alignCenter{
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+  }
+
+  th {
+    background-color: darkgrey;
+  }
+
+  td {
+    background-color: lightgray;
+  }

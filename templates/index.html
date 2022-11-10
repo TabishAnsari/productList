@@ -1,0 +1,49 @@
+{% extends 'layout.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block body %}
+    
+    <h1 class="center">Product List</h1>
+    <div class="alignCenter">
+        <table class="center">
+            <tr>
+                <th>Product Name </th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Action</th>
+            </tr>
+            {% for product in products%}
+                <tr>
+                    <td>{{product.name}}</td>
+                    <td>{{product.quantity}}</td>
+                    <td>{{product.price}}</td>
+                    <td>
+                         <form action="edit/" method="get">
+                            <input type="hidden" name="id" value="{{product.id}}">
+                            <input type="submit" value="Edit" class="action">
+                         </form>
+                    </td>
+            {% endfor %}
+        </table>
+    </div>
+    <div class="alignCenter">
+        <button type="button" class="openModal1">Add New Product</button>
+    </div>
+
+    <dialog id="modal1">
+        <form action="/" method="post">
+            <input type="text" name="name" placeholder="Product Name">
+            <input type="integer" name="quantity" placeholder="Quantity">
+            <input type="integer" name="price" placeholder="Price">
+            <input type="submit" value="Add">
+        </form>
+        <div class="alignCenter" "center">
+            <button type="button" id="closeModal1">Cancel</button>
+        </div>
+    </dialog>
+
+    {% block editModal %} {% endblock %}
+
+    <script type="text/javascript" src="{{url_for('static',filename='script/myScript.js')}}"></script>
+{% endblock %}
